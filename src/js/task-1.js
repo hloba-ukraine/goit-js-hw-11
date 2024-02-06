@@ -10,6 +10,7 @@ const refs = {
 };
 
 refs.loader.style.display = 'none';
+
 const options = {
   key: '42243795-d3e0b32c8a225c14b798958b0',
   image_type: 'photo',
