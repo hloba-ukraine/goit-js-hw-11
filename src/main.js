@@ -30,6 +30,7 @@ async function formSubmit(e) {
   const inputValue = e.target.elements.input.value;
   options.q = inputValue;
   const images = await getPhotoByName();
+  refs.loadMore.style.display = 'block';
   try {
     markup(images);
   } catch (error) {
@@ -44,7 +45,7 @@ async function formSubmit(e) {
     });
     console.log(error);
   }
-  refs.loadMore.style.display = 'block';
+
   checkBtnLoadMore(images);
   e.target.reset();
 }
@@ -60,6 +61,7 @@ function markup(images) {
       messageLineHeight: '24px',
       maxWidth: '432px',
     });
+    refs.loadMore.style.display = 'none';
     refs.gallery.innerHTML = '';
   } else {
     const link = images.hits
@@ -122,6 +124,7 @@ async function onLoadMoreClick() {
   const el = document.querySelector('.gallery-link');
   const heithEl = el.getBoundingClientRect().height * 3;
   options.page += 1;
+
   refs.loader.style.display = 'block';
   const images = await getPhotoByName();
   try {
