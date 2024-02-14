@@ -36,7 +36,22 @@ body {
   background-color: #4e75ff;
   margin-left: 10px;
 }
-
+.load-btn {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  border: none;
+  width: 100px;
+  height: 50px;
+  border-radius: 8px;
+  margin-top: 50px;
+  background-color: #4e75ff;
+  margin-left: auto;
+  margin-right: auto;
+}
 .form-btn:hover {
   background-color: #6c8cff;
 }
