@@ -103,7 +103,20 @@ async function getPhotoByName() {
   const res = await axios.get('https://pixabay.com/api/?', {
     params: options,
   });
-  return res.data;
+  try {
+    return res.data;
+  } catch (error) {
+    iziToast.show({
+      message: 'Error ',
+      messageColor: '#FFFFFF',
+      backgroundColor: '#EF4040',
+      position: 'topRight',
+      messageSize: '16px',
+      messageLineHeight: '24px',
+      maxWidth: '432px',
+    });
+    console.log(error);
+  }
 }
 async function onLoadMoreClick() {
   const el = document.querySelector('.gallery-link');
