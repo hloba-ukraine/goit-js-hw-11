@@ -33,6 +33,15 @@ async function formSubmit(e) {
   try {
     markup(images);
   } catch (error) {
+    iziToast.show({
+      message: 'Error ',
+      messageColor: '#FFFFFF',
+      backgroundColor: '#EF4040',
+      position: 'topRight',
+      messageSize: '16px',
+      messageLineHeight: '24px',
+      maxWidth: '432px',
+    });
     console.log(error);
   }
   refs.loadMore.style.display = 'block';
@@ -102,7 +111,20 @@ async function onLoadMoreClick() {
   options.page += 1;
   refs.loader.style.display = 'block';
   const images = await getPhotoByName();
-  markup(images);
+  try {
+    markup(images);
+  } catch (error) {
+    iziToast.show({
+      message: 'Error ',
+      messageColor: '#FFFFFF',
+      backgroundColor: '#EF4040',
+      position: 'topRight',
+      messageSize: '16px',
+      messageLineHeight: '24px',
+      maxWidth: '432px',
+    });
+    console.log(error);
+  }
   checkBtnLoadMore(images);
   window.scrollBy({
     top: heithEl,
